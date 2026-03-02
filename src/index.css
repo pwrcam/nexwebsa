@@ -1,0 +1,400 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NexWeb Design System - Black & White */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    /* Core Black & White Palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+
+    --radius: 0px;
+
+    /* Custom Design Tokens */
+    --gray-50: 0 0% 98%;
+    --gray-100: 0 0% 96%;
+    --gray-200: 0 0% 90%;
+    --gray-300: 0 0% 80%;
+    --gray-400: 0 0% 60%;
+    --gray-500: 0 0% 40%;
+    --gray-600: 0 0% 25%;
+    --gray-700: 0 0% 15%;
+    --gray-800: 0 0% 10%;
+    --gray-900: 0 0% 5%;
+
+    /* Sidebar tokens */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-4 font-semibold transition-all duration-300 ease-out;
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-primary text-primary px-8 py-4 font-semibold transition-all duration-300 ease-out;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-primary text-primary-foreground;
+    transform: scale(1.02);
+  }
+  
+  .btn-outline:active {
+    transform: scale(0.98);
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-primary px-6 py-3 font-medium transition-all duration-200 ease-out;
+  }
+  
+  .btn-ghost:hover {
+    @apply bg-secondary;
+  }
+
+  /* Card Variants */
+  .card-service {
+    @apply bg-card border border-border p-8 transition-all duration-300 ease-out;
+  }
+  
+  .card-service:hover {
+    @apply border-primary;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .card-project {
+    @apply bg-card overflow-hidden cursor-pointer transition-all duration-300 ease-out;
+  }
+  
+  .card-project:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-team {
+    @apply bg-card p-6 text-center transition-all duration-300 ease-out;
+  }
+  
+  .card-team:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Section Styles */
+  .section-padding {
+    @apply py-24 px-6;
+  }
+  
+  @media (min-width: 768px) {
+    .section-padding {
+      @apply py-32 px-12;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      @apply px-24;
+    }
+  }
+
+  .section-title {
+    @apply text-4xl font-bold tracking-tight mb-6;
+  }
+  
+  @media (min-width: 768px) {
+    .section-title {
+      @apply text-5xl;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-title {
+      @apply text-6xl;
+    }
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+  
+  @media (min-width: 768px) {
+    .section-subtitle {
+      @apply text-xl;
+    }
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-sm font-medium transition-colors duration-200 relative;
+    color: hsl(var(--foreground) / 0.8);
+  }
+  
+  .nav-link:hover {
+    color: hsl(var(--foreground));
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: hsl(var(--foreground));
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link-active {
+    color: hsl(var(--foreground));
+  }
+  
+  .nav-link-active::after {
+    width: 100%;
+  }
+
+  /* Form Styles */
+  .form-input {
+    @apply w-full bg-transparent border-b-2 border-border py-4 text-foreground transition-colors duration-200;
+  }
+  
+  .form-input::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .form-input:focus {
+    @apply outline-none border-foreground;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-muted-foreground uppercase tracking-wider;
+  }
+
+  /* Utility Classes */
+  .divider {
+    @apply w-full h-px bg-border;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  /* Hover Scale */
+  .hover-scale {
+    @apply transition-transform duration-200;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Animations - Outside of @layer to avoid @apply issues */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Selection styling */
+::selection {
+  background: hsl(0 0% 0%);
+  color: hsl(0 0% 100%);
+}
