@@ -11,7 +11,7 @@ const projects = [
     location: "Cape Town",
     price: "R 8,500",
     description:
-      "A modern, responsive website for a VR Gaming Store featuring an online store and subscription service.",
+      "A modern, responsive Landing page for a VR Gaming Store featuring an online store and subscription service.",
     services: ["Web Design", "E-commerce"],
     image: "/vr-zone.png",
     year: "2026",
