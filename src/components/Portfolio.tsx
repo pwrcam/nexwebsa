@@ -9,7 +9,7 @@ const projects = [
     title: "VR Zone Landing Page",
     category: "Web Design",
     location: "Cape Town",
-    price: "R 8,500",
+    price: "",
     description:
       "A modern, responsive Landing page for a VR Gaming Store featuring an online store and subscription service.",
     services: ["Web Design", "E-commerce"],
@@ -22,7 +22,7 @@ const projects = [
     title: "The Closet",
     category: "Fullstack",
     location: "Cape Town",
-    price: "R 30,000",
+    price: "",
     description:
       "The Closet is a frontend-focused e-commerce prototype that prioritizes visual hierarchy and interaction design. Built with Next.js and Tailwind, it features a dynamic glass-morph navbar, meticulous use of gold accents against a monochrome foundation, and responsive product filtering.",
     services: ["Fullstack Development", "E-commerce"],
@@ -35,7 +35,7 @@ const projects = [
     title: "Game Award",
     category: "Fullstack",
     location: "Cape Town",
-    price: "R 23,000",
+    price: "",
     description:
       "A gaming Award site showing the best games of the year with a voting system and dynamic content.",
     services: ["Frontend Devlopment", "Dashboard"],
