@@ -49,14 +49,14 @@ const About = () => {
                 genuine passion can deliver exceptional web experiences.
               </p>
               <p>
-                Based in Cape Town, we're a small team of junior fullstack
-                developers with one year of professional experience. What we
+                Based in Cape Town, we're a team of fullstack
+                developers with 4+ years of professional experience. What we
                 lack in years, we make up for with dedication, current skills,
                 and an eagerness to prove ourselves through our work.
               </p>
               <p>
-                We understand the South African business landscape because we're
-                part of it. We know the challenges local businesses face when
+                We understand the business landscape because we're
+                part of it. We know the challenges businesses face when
                 establishing their digital presence, and we've designed our
                 services and pricing to be accessible and transparent.
               </p>
