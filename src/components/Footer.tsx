@@ -21,8 +21,8 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <h3 className="text-3xl font-bold mb-4">NexWeb</h3>
             <p className="text-background/70 max-w-md mb-6">
-              Modern web solutions for Cape Town businesses. We're a dedicated
-              team of junior fullstack developers ready to help you establish
+              Modern web solutions for businesses. We're a dedicated
+              team of fullstack developers ready to help you establish
               your digital presence.
             </p>
             <p className="text-sm text-background/50">
