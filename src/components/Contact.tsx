@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Mail, Clock, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -26,7 +25,7 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -48,19 +47,21 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://formspree.io/f/mykngegl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
 
-    // Reset after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
+      setIsSuccessModalOpen(true);
       setFormData({
         name: "",
         email: "",
@@ -70,7 +71,14 @@ const Contact = () => {
         budget: "",
         message: "",
       });
-    }, 3000);
+    } catch {
+      toast({
+        title: "Could not send message",
+        description: "Please try again in a moment.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -152,163 +160,183 @@ const Contact = () => {
             <div className="bg-secondary p-8 md:p-12">
               <h3 className="text-2xl font-bold mb-8">Send Us a Message</h3>
 
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
-                >
-                  <CheckCircle size={64} className="mx-auto mb-4 text-foreground" />
-                  <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
-                  <p className="text-muted-foreground">
-                    We'll get back to you within 24 hours.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="form-label block mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="form-input bg-background"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="form-label block mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="form-input bg-background"
-                        placeholder="you@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="form-label block mb-2">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="form-input bg-background"
-                        placeholder="+27 XX XXX XXXX"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="company" className="form-label block mb-2">
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="form-input bg-background"
-                        placeholder="Your company"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="projectType" className="form-label block mb-2">
-                        Project Type *
-                      </label>
-                      <select
-                        id="projectType"
-                        name="projectType"
-                        required
-                        value={formData.projectType}
-                        onChange={handleChange}
-                        className="form-input bg-background cursor-pointer"
-                      >
-                        <option value="">Select a type</option>
-                        {projectTypes.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="budget" className="form-label block mb-2">
-                        Budget Range (ZAR) *
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        required
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="form-input bg-background cursor-pointer"
-                      >
-                        <option value="">Select budget</option>
-                        {budgetRanges.map((range) => (
-                          <option key={range} value={range}>
-                            {range}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="message" className="form-label block mb-2">
-                      Message *
+                    <label htmlFor="name" className="form-label block mb-2">
+                      Name *
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
                       required
-                      rows={5}
-                      value={formData.message}
+                      value={formData.name}
                       onChange={handleChange}
-                      className="form-input bg-background resize-none"
-                      placeholder="Tell us about your project..."
+                      className="form-input bg-background"
+                      placeholder="Your name"
                     />
                   </div>
+                  <div>
+                    <label htmlFor="email" className="form-label block mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="form-input bg-background"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-70"
-                  >
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send size={18} />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="form-label block mb-2">
+                      Phone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="form-input bg-background"
+                      placeholder="+27 XX XXX XXXX"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className="form-label block mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="form-input bg-background"
+                      placeholder="Your company"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="projectType" className="form-label block mb-2">
+                      Project Type *
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      required
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="form-input bg-background cursor-pointer"
+                    >
+                      <option value="">Select a type</option>
+                      {projectTypes.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="budget" className="form-label block mb-2">
+                      Budget Range (ZAR) *
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      required
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="form-input bg-background cursor-pointer"
+                    >
+                      <option value="">Select budget</option>
+                      {budgetRanges.map((range) => (
+                        <option key={range} value={range}>
+                          {range}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="form-label block mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="form-input bg-background resize-none"
+                    placeholder="Tell us about your project..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-70"
+                >
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={18} />
+                    </>
+                  )}
+                </button>
+              </form>
             </div>
           </motion.div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isSuccessModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-foreground/70 flex items-center justify-center p-4"
+            onClick={() => setIsSuccessModalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+              className="w-full max-w-md bg-background border border-border p-8 text-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <CheckCircle size={56} className="mx-auto mb-4 text-foreground" />
+              <h4 className="text-2xl font-bold mb-2">Message Sent!</h4>
+              <p className="text-muted-foreground mb-6">
+                We will get back to you within 24 hours.
+              </p>
+              <button
+                type="button"
+                className="btn-primary w-full"
+                onClick={() => setIsSuccessModalOpen(false)}
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
