@@ -107,7 +107,7 @@ const Contact = () => {
                   <p className="text-muted-foreground">
                     Based in Cape Town, South Africa
                     <br />
-                    Serving businesses nationwide
+                    Serving businesses worldwide
                   </p>
                 </div>
               </div>
@@ -122,7 +122,7 @@ const Contact = () => {
                     href="mailto:info@nexweb.co.za"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    info@nexweb.co.za
+                    info@nexwebsa.co.za
                   </a>
                 </div>
               </div>
@@ -135,8 +135,6 @@ const Contact = () => {
                   <h4 className="font-semibold mb-1">Response Time</h4>
                   <p className="text-muted-foreground">
                     We respond within 24 hours
-                    <br />
-                    Cape Town time (SAST)
                   </p>
                 </div>
               </div>
