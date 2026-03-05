@@ -1,7 +1,10 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, X } from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
