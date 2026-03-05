@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Mail, Clock, Send, CheckCircle } from "lucide-react";

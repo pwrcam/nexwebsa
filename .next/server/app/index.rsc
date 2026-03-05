@@ -1,0 +1,25 @@
+1:"$Sreact.fragment"
+2:I[371,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js"],"default"]
+3:I[39756,["/_next/static/chunks/4392189f08a7af14.js"],"default"]
+4:I[37457,["/_next/static/chunks/4392189f08a7af14.js"],"default"]
+5:I[29306,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ff8fdd0a6b90da71.js"],"default"]
+6:I[2971,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+7:I[32177,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+8:I[27641,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+9:I[89594,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+a:I[55786,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+b:I[71030,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+c:I[95526,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+d:I[34191,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+e:I[75854,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+f:I[13642,["/_next/static/chunks/3254a9d8faa9fc00.js","/_next/static/chunks/f4099704cf8e4e6f.js","/_next/static/chunks/ee39ddf5b776ef9c.js"],"default"]
+10:I[97367,["/_next/static/chunks/4392189f08a7af14.js"],"OutletBoundary"]
+11:"$Sreact.suspense"
+13:I[97367,["/_next/static/chunks/4392189f08a7af14.js"],"ViewportBoundary"]
+15:I[97367,["/_next/static/chunks/4392189f08a7af14.js"],"MetadataBoundary"]
+17:I[68027,["/_next/static/chunks/4392189f08a7af14.js"],"default"]
+:HL["/_next/static/chunks/ff313027a2d8da8c.css","style"]
+0:{"P":null,"b":"fO2IbLTkpKHEr054wTHKM","c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/ff313027a2d8da8c.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3254a9d8faa9fc00.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/f4099704cf8e4e6f.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L5",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":[["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen","children":[["$","$L6",null,{}],["$","main",null,{"children":[["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{}],["$","$Lc",null,{}],["$","$Ld",null,{}],["$","$Le",null,{}]]}],["$","$Lf",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/ee39ddf5b776ef9c.js","async":true,"nonce":"$undefined"}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],{},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$L13",null,{"children":"$L14"}],["$","div",null,{"hidden":true,"children":["$","$L15",null,{"children":["$","$11",null,{"name":"Next.Metadata","children":"$L16"}]}]}],null]}],false]],"m":"$undefined","G":["$17",[]],"S":true}
+14:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+12:null
+16:[["$","title","0",{"children":"NexWebSA"}],["$","meta","1",{"name":"description","content":"Premium Web Solutions"}]]
